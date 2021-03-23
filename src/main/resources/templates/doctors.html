@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Doctor's page</h1>
+    <div th:each="el : ${doctors}">
+        <p>---------------------------</p>
+        <p th:text="${el.first_name}"></p>
+        <p th:text="${el.second_name}"></p>
+        <p th:text="${el.patronymic}"></p>
+        <p th:text="${el.specialty}"></p>
+        <p>---------------------------</p>
+    </div>
+</body>
+</html>
