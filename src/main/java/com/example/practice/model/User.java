@@ -15,7 +15,7 @@ public class User implements UserDetails, Serializable {
     private String first_name;
     private String second_name;
     private Date birthday;
-    private boolean sex;
+    private boolean sex; //true - man, false - woman
     private String role;
 
     public User(){

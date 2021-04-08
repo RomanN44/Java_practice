@@ -1,18 +1,53 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Главная</title>
 </head>
 <body>
-    <h1>Doctor's page</h1>
-    <div th:each="el : ${doctors}">
-        <p>---------------------------</p>
-        <p th:text="${el.first_name}"></p>
-        <p th:text="${el.second_name}"></p>
-        <p th:text="${el.patronymic}"></p>
-        <p th:text="${el.specialty}"></p>
-        <p>---------------------------</p>
+<header th:insert="fragments/header::header"></header>
+</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col" th:each="el : ${doctors}">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 th:text="${el.specialty}"></h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li th:text="${el.first_name}"></li>
+                        <li th:text="${el.second_name}"></li>
+                        <li th:text="${el.patronymic}"></li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Подробнее</button>
+                </div>
+            </div>
+        </div>
     </div>
+    <footer th:insert="fragments/footer :: footer"></footer>
+</div>
+<!-- <p th:text="'Hello, ' + ${title} + '!'" /> -->
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Doctor's page</h1>-->
+<!--    <div th:each="el : ${doctors}">-->
+<!--        <p></p>-->
+<!--        <p th:text="${el.first_name}"></p>-->
+<!--        <p th:text="${el.second_name}"></p>-->
+<!--        <p th:text="${el.patronymic}"></p>-->
+<!--        <p th:text="${el.specialty}"></p>-->
+<!--        <p>-</p>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
