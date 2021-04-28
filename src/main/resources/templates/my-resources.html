@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Мои записи</title>
+</head>
+<body>
+<header th:insert="fragments/header::header"></header>
+</div>
+<div class="container">
+    <div th:insert="fragments/resources-header::resources-header"></div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Врач</th>
+            <th>Специальность</th>
+            <th>Дата</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="el: ${resources}">
+            <th th:text="${el.index}" name="resource_index"></th>
+            <th th:text="${el.Doctor}"></th>
+            <th th:text="${el.specialty}"></th>
+            <th th:text="${el.datetime}"></th>
+            <td>
+                <form th:action="@{/resources/my-resources}" th:method="post">
+                    <button class="btn btn-outline-primary" type="submit" th:name="action" th:value="${el.id}">Отказаться</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <footer th:insert="fragments/footer :: footer"></footer>
+</div>
+</body>
+</html>

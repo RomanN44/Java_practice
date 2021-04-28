@@ -5,6 +5,7 @@
             <a class="p-2 text-dark" th:href="@{/index}">Главная</a>
             <a class="p-2 text-dark" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Администрирование</a>
             <a class="p-2 text-dark" sec:authorize="isAuthenticated()" th:href="@{/user}">Мой профиль</a>
+            <a class="p-2 text-dark" sec:authorize="isAuthenticated()" th:href="@{/resources}">Записаться</a>
             <a class="p-2 text-dark" th:href="@{/doctors}">Доктора</a>
             <a class="p-2 text-dark" href="#">Поддержка</a>
             <a class="p-2 text-dark" href="/about">About</a>

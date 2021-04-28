@@ -5,6 +5,7 @@ import com.example.practice.model.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
@@ -40,5 +41,18 @@ public class DoctorDaoImpl extends JdbcDaoSupport implements DoctorDao {
             result.add(doc);
         }
         return result;
+    }
+
+    @Override
+    public String findFullNameById(long id) {
+        String first_name = getJdbcTemplate().queryForObject("SELECT first_name FROM doctors WHERE doctor_id = ?", String.class, id);
+        String second_name = getJdbcTemplate().queryForObject("SELECT second_name FROM doctors WHERE doctor_id = ?", String.class, id);
+        String patronymic = getJdbcTemplate().queryForObject("SELECT patronymic FROM doctors WHERE doctor_id = ?", String.class, id);
+        return first_name + " " + second_name + " " + patronymic;
+    }
+
+    @Override
+    public String findSpecialtyById(long id) {
+        return getJdbcTemplate().queryForObject("SELECT specialty FROM doctors WHERE doctor_id = ?", String.class, id);
     }
 }
