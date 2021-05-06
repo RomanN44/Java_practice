@@ -5,8 +5,8 @@ public class ResourceForUsers {
     private long index;
     private String Doctor;
     private String specialty;
-    private String open;
-    private String datetime;
+    private String date;
+    private String time;
 
     public long getId() {
         return id;
@@ -40,19 +40,19 @@ public class ResourceForUsers {
         this.specialty = specialty;
     }
 
-    public String getOpen() {
-        return open;
+    public String getDate() {
+        return date;
     }
 
-    public void setOpen(String open) {
-        this.open = open;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getTime() {
+        return time;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setTime(String time) {
+        this.time = time;
     }
 }

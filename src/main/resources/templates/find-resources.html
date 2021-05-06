@@ -4,13 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <title>Запись на приём</title>
+    <title>Найти записи</title>
 </head>
 <body>
 <header th:insert="fragments/header::header"></header>
 </div>
 <div class="container">
     <div th:insert="fragments/resources-header::resources-header"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form th:action="@{/resources/find-resources/find}" th:method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Фамилия врача</label>
+                        <input type="text" class="form-control" th:name="first_name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Имя врача</label>
+                        <input type="text" class="form-control" th:name="second_name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Специальность</label>
+                        <input type="text" class="form-control" th:name="specialty">
+                    </div>
+                    <button class="btn btn-outline-primary" type="submit" th:name="find">Найти</button>
+                </form>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
 
     <table class="table">
         <thead>
@@ -31,7 +55,7 @@
             <th th:text="${el.date}"></th>
             <th th:text="${el.time}"></th>
             <td>
-                <form th:action="@{/resource}" th:method="post">
+                <form th:action="@{/resource/find-resources}" th:method="post">
                     <button class="btn btn-outline-primary" type="submit" th:name="action" th:value="${el.id}">Записаться</button>
                 </form>
             </td>

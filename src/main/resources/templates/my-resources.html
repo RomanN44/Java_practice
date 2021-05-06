@@ -19,6 +19,7 @@
             <th>Врач</th>
             <th>Специальность</th>
             <th>Дата</th>
+            <th>Время</th>
             <th></th>
         </tr>
         </thead>
@@ -27,7 +28,8 @@
             <th th:text="${el.index}" name="resource_index"></th>
             <th th:text="${el.Doctor}"></th>
             <th th:text="${el.specialty}"></th>
-            <th th:text="${el.datetime}"></th>
+            <th th:text="${el.date}"></th>
+            <th th:text="${el.time}"></th>
             <td>
                 <form th:action="@{/resources/my-resources}" th:method="post">
                     <button class="btn btn-outline-primary" type="submit" th:name="action" th:value="${el.id}">Отказаться</button>

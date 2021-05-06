@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
+import javax.swing.text.html.parser.Parser;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -70,5 +72,17 @@ public class ResourceDaoImpl extends JdbcDaoSupport implements ResourceDao {
     public void clearResource(long resource_id) {
         String sql = "UPDATE resource SET user_id=null, is_open=true WHERE resource_id=?";
         jdbcTemplate.update(sql, resource_id);
+    }
+
+    @Override
+    public List findResource(String first_name, String second_name, String specialty) {
+        String sql = "SELECT * FROM resource WHERE doctor_id in " +
+                "(SELECT doctor_id FROM doctors where " +
+                " lower(first_name) like lower(?) " +
+                " and lower(second_name) like lower(?)" +
+                " and lower(specialty) like lower(?))";
+
+        List<Map<String,Object>> rows = getJdbcTemplate().queryForList(sql, first_name, second_name, specialty);
+        return getList(rows);
     }
 }
