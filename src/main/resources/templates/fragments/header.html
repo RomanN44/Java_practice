@@ -8,7 +8,7 @@
             <a class="p-2 text-dark" sec:authorize="isAuthenticated()" th:href="@{/resources}">Записаться</a>
             <a class="p-2 text-dark" th:href="@{/doctors}">Доктора</a>
             <a class="p-2 text-dark" href="#">Поддержка</a>
-            <a class="p-2 text-dark" href="/about">About</a>
+            <a class="p-2 text-dark" href="/about">О сайте</a>
             <a class="btn btn-outline-primary" role="button" sec:authorize="isAuthenticated()" th:href="@{/login}">Выйти</a>
             <a class="btn btn-outline-primary" role="button" sec:authorize="!isAuthenticated()" th:href="@{/login}">Войти</a>
         </nav>

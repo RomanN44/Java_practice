@@ -1,6 +1,9 @@
 package com.example.practice.service;
 
+import com.example.practice.model.Doctor;
+
+import java.util.List;
+
 public interface DoctorService {
-    void loadAllDoctors();
-    void getFullNameById(long id);
+    List<Doctor> loadAllDoctors();
 }

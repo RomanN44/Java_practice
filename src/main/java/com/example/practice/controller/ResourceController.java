@@ -1,6 +1,7 @@
 package com.example.practice.controller;
 
 import com.example.practice.dao.ResourceDao;
+import com.example.practice.service.HistoryService;
 import com.example.practice.service.ResourceService;
 import com.example.practice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class ResourceController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private HistoryService historyService;
+
     @GetMapping("/resources")
     public String mainResources(Model model)
     {
@@ -40,6 +44,8 @@ public class ResourceController{
         resourceService.bookingResource(action, userService.getIdByLogin(user.getUsername()));
         model.addAttribute("resources", resourceService.loadAllFreeResources());
         model.addAttribute("title", "Свободные записи:");
+
+        historyService.createRecord(userService.getIdByLogin(user.getUsername()), action, "booking");
         return "resources";
     }
 
@@ -58,6 +64,8 @@ public class ResourceController{
         resourceService.clearResource(action);
         model.addAttribute("resources", resourceService.loadUsersResources(userService.getIdByLogin(user.getUsername())));
         model.addAttribute("title", "Ваши записи:");
+
+        historyService.createRecord(userService.getIdByLogin(user.getUsername()), action, "delete");
         return "my-resources";
     }
 

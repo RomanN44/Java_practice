@@ -10,13 +10,12 @@
 <header th:insert="fragments/header::header"></header>
 </div>
 <div class="container">
-    <h1>HELLO!</h1>
+    <h1>Добро пожаловать!</h1>
     <!--<p sec:authorize="getName()"></p>-->
     <div sec:authorize="isAuthenticated()">
-        User: <span sec:authentication="name">miquel</span>
+        Ваш логин - <span sec:authentication="name">miquel</span>
     </div>
     <footer th:insert="fragments/footer :: footer"></footer>
 </div>
-<!-- <p th:text="'Hello, ' + ${title} + '!'" /> -->
 </body>
 </html>

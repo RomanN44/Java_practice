@@ -9,8 +9,6 @@ public class MainController {
     public String index() { return "index"; }
     @GetMapping("/admin")
     public String admin() {return "admin";}
-    @GetMapping("/user")
-    public String user() {return "user";}
     @GetMapping("/login")
     public String login() {return "login";}
 }
