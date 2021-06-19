@@ -15,6 +15,9 @@
     <div sec:authorize="isAuthenticated()">
         Ваш логин - <span sec:authentication="name">miquel</span>
     </div>
+    <div sec:authorize="!isAuthenticated()">
+        Для работы Вам нужно авторизироваться.
+    </div>
     <footer th:insert="fragments/footer :: footer"></footer>
 </div>
 </body>
