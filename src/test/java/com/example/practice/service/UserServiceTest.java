@@ -1,4 +1,4 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
 import com.example.practice.dao.impl.UserDaoImpl;
 import com.example.practice.model.User;
@@ -8,20 +8,18 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
-
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserServiceImplTest {
+public class UserServiceTest {
     @Mock
     private UserDaoImpl userDao;
 
     @Mock
-    private UserDetailServiceImpl userDetailService;
+    private UserDetailService userDetailService;
 
     @InjectMocks
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @Test
     public void findByLogin() {

@@ -1,4 +1,4 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
 import com.example.practice.dao.impl.UserDaoImpl;
 import com.example.practice.model.User;
@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class UserDetailServiceImpl implements UserDetailsService {
+public class UserDetailService implements UserDetailsService {
 
     @Autowired
     private UserDaoImpl userDao;

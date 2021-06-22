@@ -1,4 +1,4 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
 import com.example.practice.dao.DoctorDao;
 import org.junit.Test;
@@ -11,26 +11,17 @@ import static org.mockito.Mockito.verify;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(MockitoJUnitRunner.class)
-public class DoctorServiceImplTest {
+public class DoctorServiceTest {
 
     @Mock
     private DoctorDao doctorDao;
 
     @InjectMocks
-    private DoctorServiceImpl doctorService;
-
-//    @Before
-//    public void setUp() throws Exception {
-//        doctorService = new DoctorServiceImpl();
-//    }
+    private DoctorService doctorService;
 
     @Test
     public void loadAllDoctors() {
-        //prepare
-        //when(doctorDao.loadAllDoctors()).thenReturn(ImmutableList.of());
         //testing
         List list = doctorService.loadAllDoctors();
         //validate

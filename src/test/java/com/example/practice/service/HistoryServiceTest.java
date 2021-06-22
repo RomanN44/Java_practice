@@ -1,27 +1,25 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
-import com.example.practice.dao.DoctorDao;
 import com.example.practice.dao.HistoryDao;
+import com.example.practice.service.HistoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class HistoryServiceImplTest {
+public class HistoryServiceTest {
 
     @Mock
     private HistoryDao historyDao;
 
     @InjectMocks
-    private HistoryServiceImpl  historyService;
+    private HistoryService historyService;
 
     @Test
     public void createRecord() {

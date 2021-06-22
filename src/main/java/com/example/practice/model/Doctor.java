@@ -1,5 +1,8 @@
 package com.example.practice.model;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import java.io.Serializable;
 
 public class Doctor implements Serializable {

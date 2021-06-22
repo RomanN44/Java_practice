@@ -1,4 +1,4 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
 import com.example.practice.dao.DoctorDao;
 import com.example.practice.dao.ResourceDao;
@@ -10,11 +10,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ResourceServiceImplTest {
+public class ResourceServiceTest {
 
     @Mock
     private ResourceDao resourceDao;
@@ -23,7 +22,7 @@ public class ResourceServiceImplTest {
     private DoctorDao doctorDao;
 
     @InjectMocks
-    private ResourceServiceImpl resourceService;
+    private ResourceService resourceService;
 
     @Test
     public void loadAllFreeResources() {

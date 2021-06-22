@@ -1,6 +1,5 @@
-package com.example.practice.service.impl;
+package com.example.practice.service;
 
-import com.example.practice.dao.DoctorDao;
 import com.example.practice.dao.impl.UserDaoImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,19 +8,16 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.core.userdetails.User;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserDetailServiceImplTest {
+public class UserDetailServiceTest {
 
     @Mock
     private UserDaoImpl userDao;
 
     @InjectMocks
-    private UserDetailServiceImpl userDetailService;
+    private UserDetailService userDetailService;
 
     @Test
     public void loadUserByUsername() {

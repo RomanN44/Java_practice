@@ -11,7 +11,7 @@
 </div>
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col" th:each="el : ${doctors}">
+        <div class="col" th:each="el : ${doctorsList}">
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
                     <h4 th:text="${el.specialty}"></h4>
